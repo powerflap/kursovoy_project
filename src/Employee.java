@@ -17,7 +17,7 @@ public class Employee {
         } else {
             this.department = department;
         }
-        this.firstName =  firstName;
+        this.firstName = firstName;
         this.lastName = lastName;
         this.secondName = secondName;
         this.salary = salary;
@@ -59,13 +59,13 @@ public class Employee {
     @Override
     public String toString() {
         if (secondName == null) {
-            return  "Имя: " + firstName + '\n' +
+            return "Имя: " + firstName + '\n' +
                     "Фамилия: " + lastName + '\n' +
                     "Зарплата: " + salary + "\n" +
                     "Отдел: " + department + "\n" +
                     "ID: " + id + "\n";
         }
-        return  "Имя: " + firstName + '\n' +
+        return "Имя: " + firstName + '\n' +
                 "Фамилия: " + lastName + '\n' +
                 "Отчество: " + secondName + '\n' +
                 "Зарплата: " + salary + "\n" +
@@ -111,5 +111,3 @@ public class Employee {
         return Objects.hash(firstName, lastName, secondName, salary, department);
     }
 }
-
-

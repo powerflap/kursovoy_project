@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class EmployeeBook {private final Employee[] employees = new Employee[10];
+public class EmployeeBook {
+    private final Employee[] employees = new Employee[10];
     private int employeeCount = 0;
 
     public boolean newEmployee(Employee employee) {
@@ -239,7 +240,6 @@ public class EmployeeBook {private final Employee[] employees = new Employee[10]
     }
 
     private Employee createTargetEmployee() {
-        return new Employee(null,null,null,0,2);
+        return new Employee(null, null, null, 0, 2);
     }
 }
-
