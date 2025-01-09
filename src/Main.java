@@ -5,18 +5,18 @@ public static void main(String[] args) {
     mainMenu(employeeBook);
 }
 
-public static void mainMenu(EmployeeBook employeeBook){
+public static void mainMenu(EmployeeBook employeeBook) {
     printLine();
-    System.out.printf("%1$78s\n","Добро пожаловать в программу учёта работников!");
+    System.out.printf("%1$78s\n", "Добро пожаловать в программу учёта работников!");
     System.out.println("Выберите нужное действие:");
-    System.out.printf("%1$-55s%2$-55s\n","1)Получить список всех сотрудников","10)Найти сумму затрат на ЗП по отделу");
-    System.out.printf("%1$-55s%2$-55s\n","2)Посчитать сумму затрат на ЗП в месяц","11)Найти среднюю зп по отделу");
-    System.out.printf("%1$-55s%2$-55s\n","3)Найти сотрудника с минимальной ЗП","12)Показать всех сотрудников отдела");
-    System.out.printf("%1$-55s%2$-55s\n","4)Найти сотрудника с максимальной ЗП;","13)Показать всех у кого ЗП меньше \"N\"");
-    System.out.printf("%1$-55s%2$-55s\n","5)Подсчитать среднее значение зарплат","14)Показать всех у кого ЗП больше (или равно) \"N\"");
-    System.out.printf("%1$-55s%2$-55s\n","6)Распечатать ФИО всех сотрудников","15)Добавить нового сотрудника");
-    System.out.printf("%1$-55s%2$-55s\n","7)Найти сотрудника с минимальной ЗП по отделу","16)Удалить сотрудника");
-    System.out.printf("%1$-55s%2$-55s\n","8)Найти сотрудника с максимальной ЗП по отделу","17)Проиндексировать ЗП сотрудников на процент");
+    System.out.printf("%1$-55s%2$-55s\n", "1)Получить список всех сотрудников", "10)Найти сумму затрат на ЗП по отделу");
+    System.out.printf("%1$-55s%2$-55s\n", "2)Посчитать сумму затрат на ЗП в месяц", "11)Найти среднюю зп по отделу");
+    System.out.printf("%1$-55s%2$-55s\n", "3)Найти сотрудника с минимальной ЗП", "12)Показать всех сотрудников отдела");
+    System.out.printf("%1$-55s%2$-55s\n", "4)Найти сотрудника с максимальной ЗП;", "13)Показать всех у кого ЗП меньше \"N\"");
+    System.out.printf("%1$-55s%2$-55s\n", "5)Подсчитать среднее значение зарплат", "14)Показать всех у кого ЗП больше (или равно) \"N\"");
+    System.out.printf("%1$-55s%2$-55s\n", "6)Распечатать ФИО всех сотрудников", "15)Добавить нового сотрудника");
+    System.out.printf("%1$-55s%2$-55s\n", "7)Найти сотрудника с минимальной ЗП по отделу", "16)Удалить сотрудника");
+    System.out.printf("%1$-55s%2$-55s\n", "8)Найти сотрудника с максимальной ЗП по отделу", "17)Проиндексировать ЗП сотрудников на процент");
     System.out.print("9)Проиндексировать ЗП сотрудников отдела на процент\n");
     System.out.println("==============================================================================================================");
 
@@ -25,12 +25,11 @@ public static void mainMenu(EmployeeBook employeeBook){
     actionSelection(choice, employeeBook);
 }
 
-public static void printLine(){
+public static void printLine() {
     System.out.println("==============================================================================================================");
 }
-
-public static void actionSelection(int action, EmployeeBook employeeBook){
-    switch(action){
+public static void actionSelection(int action, EmployeeBook employeeBook) {
+    switch (action) {
         case 1:
             System.out.print("\033[H\033[J");
             employeeBook.printAllEmployee();
@@ -51,6 +50,7 @@ public static void actionSelection(int action, EmployeeBook employeeBook){
             System.out.println(employeeBook.findEmployeeWithMaxSalary());
             pauseAndBack(employeeBook);
             break;
+
         case 5:
             System.out.print("\033[H\033[J");
             System.out.printf("Средняя ЗП равна: %.2f\n", employeeBook.calculateAverageSalary());
@@ -107,14 +107,14 @@ public static void actionSelection(int action, EmployeeBook employeeBook){
             Employee newEmployee = new Employee(insertFirstName(), insertLastName(), insertSecondName(), insertSalary(), insertDepartment());
             if (employeeBook.newEmployee(newEmployee)) {
                 System.out.println("Сотрудник создан успешно.");
-            }else System.out.println("Создание сотрудника не удалось.");
+            } else System.out.println("Создание сотрудника не удалось.");
             pauseAndBack(employeeBook);
             break;
         case 16:
             System.out.print("\033[H\033[J");
             if (employeeBook.deleteEmployee(insertId())) {
                 System.out.println("Сотрудник удалён.");
-            }else System.out.println("Удаление не выполнено.");
+            } else System.out.println("Удаление не выполнено.");
             pauseAndBack(employeeBook);
             break;
         case 17:
@@ -130,7 +130,7 @@ public static void actionSelection(int action, EmployeeBook employeeBook){
     }
 }
 
-public static void pauseAndBack(EmployeeBook employeeBook){
+public static void pauseAndBack(EmployeeBook employeeBook) {
     Scanner sc = new Scanner(System.in);
     System.out.print("Нажмите [Enter], чтобы вернуться...\n");
     String exit;
@@ -180,4 +180,3 @@ public static double insertSalary() {
     System.out.println("Введите зарплату: ");
     return sc.nextDouble();
 }
-

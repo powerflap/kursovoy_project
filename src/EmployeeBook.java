@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class EmployeeBook {private final Employee[] employees = new Employee[10];
+public class EmployeeBook {
+    private final Employee[] employees = new Employee[10];
     private int employeeCount = 0;
 
     public boolean newEmployee(Employee employee) {
@@ -60,7 +61,7 @@ public class EmployeeBook {private final Employee[] employees = new Employee[10]
     public void printEmployeeInDepartment(int department) {
         Employee[] employeeInDepartnemt = findEmployeeInDepartment(department);
         for (Employee employee : employeeInDepartnemt) {
-            System.out.println(employee.printData());
+            System.out.println(employee.toString());
         }
     }
 
@@ -141,7 +142,6 @@ public class EmployeeBook {private final Employee[] employees = new Employee[10]
             employee.printName();
         }
     }
-
     public Employee findMinSalaryInDepartment(int department) {
         if (employeeCount == 0) {
             throw new IllegalStateException("Список работников пуст.");
@@ -159,7 +159,6 @@ public class EmployeeBook {private final Employee[] employees = new Employee[10]
         }
         return targetEmployee;
     }
-
     public Employee findMaxSalaryInDepartnemt(int department) {
         if (employeeCount == 0) {
             throw new IllegalStateException("Список работников пуст.");
@@ -177,7 +176,6 @@ public class EmployeeBook {private final Employee[] employees = new Employee[10]
         }
         return targetEmployee;
     }
-
     private void riseSalary(Employee[] employees, double percent) {
         double newSalary;
         for (Employee employee : employees) {
@@ -188,7 +186,6 @@ public class EmployeeBook {private final Employee[] employees = new Employee[10]
             employee.setSalary(newSalary);
         }
     }
-
     public void riseSalary(double percent) {
         riseSalary(employees, percent);
     }
@@ -197,49 +194,43 @@ public class EmployeeBook {private final Employee[] employees = new Employee[10]
         Employee[] targetEmployees = findEmployeeInDepartment(department);
         riseSalary(targetEmployees, percent);
     }
-
     private Employee[] findSalaryMoreThan(double salaryToCompare) {
         ArrayList<Employee> employeesWithSalaryMoreThan = new ArrayList<>();
         for (Employee employee : employees) {
             if (employee == null) {
                 continue;
             }
-            if (employee.getSalary() >= salaryToCompare) {
+            if (employee.getSalary() < salaryToCompare) {
                 employeesWithSalaryMoreThan.add(employee);
             }
         }
         return employeesWithSalaryMoreThan.toArray(new Employee[0]);
     }
-
     private Employee[] findSalaryLessThan(double salaryToCompare) {
         ArrayList<Employee> employeesWithSalaryLessThan = new ArrayList<>();
         for (Employee employee : employees) {
             if (employee == null) {
                 continue;
             }
-            if (employee.getSalary() >= salaryToCompare) {
+            if (employee.getSalary() < salaryToCompare) {
                 employeesWithSalaryLessThan.add(employee);
             }
         }
         return employeesWithSalaryLessThan.toArray(new Employee[0]);
     }
-
     public void printSalaryMoreThan(double salaryToCompare) {
         Employee[] employeesToPrint = findSalaryMoreThan(salaryToCompare);
         for (Employee employee : employeesToPrint) {
-            employee.printData();
+            employee.toString();
         }
     }
-
     public void printSalaryLessThan(double salaryToCompare) {
         Employee[] employeesToPrint = findSalaryLessThan(salaryToCompare);
         for (Employee employee : employeesToPrint) {
-            employee.printData();
+            employee.toString();
         }
     }
-
     private Employee createTargetEmployee() {
-        return new Employee(null,null,null,0,2);
+        return new Employee(null, null, null, 0, 2);
     }
 }
-
