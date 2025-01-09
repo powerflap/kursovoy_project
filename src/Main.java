@@ -50,6 +50,7 @@ public static void actionSelection(int action, EmployeeBook employeeBook) {
             System.out.println(employeeBook.findEmployeeWithMaxSalary());
             pauseAndBack(employeeBook);
             break;
+
         case 5:
             System.out.print("\033[H\033[J");
             System.out.printf("Средняя ЗП равна: %.2f\n", employeeBook.calculateAverageSalary());

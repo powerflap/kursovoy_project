@@ -35,7 +35,6 @@ public class Employee {
     public String getSecondName() {
         return secondName;
     }
-
     public double getSalary() {
         return salary;
     }
