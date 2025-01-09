@@ -142,7 +142,6 @@ public class EmployeeBook {
             employee.printName();
         }
     }
-
     public Employee findMinSalaryInDepartment(int department) {
         if (employeeCount == 0) {
             throw new IllegalStateException("Список работников пуст.");
@@ -160,7 +159,6 @@ public class EmployeeBook {
         }
         return targetEmployee;
     }
-
     public Employee findMaxSalaryInDepartnemt(int department) {
         if (employeeCount == 0) {
             throw new IllegalStateException("Список работников пуст.");
@@ -178,7 +176,6 @@ public class EmployeeBook {
         }
         return targetEmployee;
     }
-
     private void riseSalary(Employee[] employees, double percent) {
         double newSalary;
         for (Employee employee : employees) {
@@ -189,7 +186,6 @@ public class EmployeeBook {
             employee.setSalary(newSalary);
         }
     }
-
     public void riseSalary(double percent) {
         riseSalary(employees, percent);
     }
@@ -198,7 +194,6 @@ public class EmployeeBook {
         Employee[] targetEmployees = findEmployeeInDepartment(department);
         riseSalary(targetEmployees, percent);
     }
-
     private Employee[] findSalaryMoreThan(double salaryToCompare) {
         ArrayList<Employee> employeesWithSalaryMoreThan = new ArrayList<>();
         for (Employee employee : employees) {
@@ -211,7 +206,6 @@ public class EmployeeBook {
         }
         return employeesWithSalaryMoreThan.toArray(new Employee[0]);
     }
-
     private Employee[] findSalaryLessThan(double salaryToCompare) {
         ArrayList<Employee> employeesWithSalaryLessThan = new ArrayList<>();
         for (Employee employee : employees) {
@@ -224,21 +218,18 @@ public class EmployeeBook {
         }
         return employeesWithSalaryLessThan.toArray(new Employee[0]);
     }
-
     public void printSalaryMoreThan(double salaryToCompare) {
         Employee[] employeesToPrint = findSalaryMoreThan(salaryToCompare);
         for (Employee employee : employeesToPrint) {
             employee.toString();
         }
     }
-
     public void printSalaryLessThan(double salaryToCompare) {
         Employee[] employeesToPrint = findSalaryLessThan(salaryToCompare);
         for (Employee employee : employeesToPrint) {
             employee.toString();
         }
     }
-
     private Employee createTargetEmployee() {
         return new Employee(null, null, null, 0, 2);
     }

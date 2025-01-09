@@ -72,7 +72,6 @@ public class Employee {
                 "Отдел: " + department + "\n" +
                 "ID: " + id + "\n";
     }
-
     public String printName() {
         if (secondName == null) {
             return "Имя: " + firstName + '\n' +
@@ -89,7 +88,6 @@ public class Employee {
         Employee employee = (Employee) o;
         return Double.compare(salary, employee.salary) == 0 && department == employee.department && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(secondName, employee.secondName);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(firstName, lastName, secondName, salary, department);

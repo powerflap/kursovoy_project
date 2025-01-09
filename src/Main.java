@@ -28,7 +28,6 @@ public static void mainMenu(EmployeeBook employeeBook) {
 public static void printLine() {
     System.out.println("==============================================================================================================");
 }
-
 public static void actionSelection(int action, EmployeeBook employeeBook) {
     switch (action) {
         case 1:
