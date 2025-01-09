@@ -61,7 +61,7 @@ public class EmployeeBook {
     public void printEmployeeInDepartment(int department) {
         Employee[] employeeInDepartnemt = findEmployeeInDepartment(department);
         for (Employee employee : employeeInDepartnemt) {
-            System.out.println(employee.printData());
+            System.out.println(employee.toString());
         }
     }
 
@@ -205,7 +205,7 @@ public class EmployeeBook {
             if (employee == null) {
                 continue;
             }
-            if (employee.getSalary() >= salaryToCompare) {
+            if (employee.getSalary() < salaryToCompare) {
                 employeesWithSalaryMoreThan.add(employee);
             }
         }
@@ -218,7 +218,7 @@ public class EmployeeBook {
             if (employee == null) {
                 continue;
             }
-            if (employee.getSalary() >= salaryToCompare) {
+            if (employee.getSalary() < salaryToCompare) {
                 employeesWithSalaryLessThan.add(employee);
             }
         }
@@ -228,14 +228,14 @@ public class EmployeeBook {
     public void printSalaryMoreThan(double salaryToCompare) {
         Employee[] employeesToPrint = findSalaryMoreThan(salaryToCompare);
         for (Employee employee : employeesToPrint) {
-            employee.printData();
+            employee.toString();
         }
     }
 
     public void printSalaryLessThan(double salaryToCompare) {
         Employee[] employeesToPrint = findSalaryLessThan(salaryToCompare);
         for (Employee employee : employeesToPrint) {
-            employee.printData();
+            employee.toString();
         }
     }
 
